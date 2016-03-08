@@ -5,10 +5,20 @@
             <%= link_to "All Recipes", recipes_path, class: "btn btn-default btn-warning" %>
           </div>
           <div class="nav_item">
-            <%= link_to "Middle Link", "", class: "btn btn-default btn-warning" %>
+            <%= link_to "Empty Link", "", class: "btn btn-default btn-warning" %>
           </div>
-          <div class="nav_item">
-            <%= link_to "New Recipe!", new_recipe_path, class: "btn btn-default btn-warning" %>
+
+          <% if logged_in? %>
+            <div class="nav_item">
+              <%= link_to "New Recipe!", new_recipe_path, class: "btn btn-default btn-warning" %>
+            </div>
+            <div class="nav_item">
+            <%= link_to "Logout", logout_path, class: "btn btn-default btn-danger" %>
           </div>
-    </div>
+          <% else %>
+            <div class="nav_item">
+              <%= link_to "Login", login_path, class: "btn btn-default btn-warning" %>
+            </div>
+          <% end %>
+      </div>
 </header>
